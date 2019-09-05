@@ -1,12 +1,12 @@
 
 
 def dfs(adj, i, j, visited):
-    rowNbr = [-1, 0, 0, 1,-1, -1, 1, 1]
-    colnbr = [0, -1, 1, 0, -1, 1, -1, 1]
+    rowNbr = [-1, 0, 0, 1]
+    colnbr = [0, -1, 1, 0]
 
     visited[i][j] = True
 
-    for k in range(8):
+    for k in range(4):
         if issafe(adj, i+rowNbr[k], j+colnbr[k], visited):
             dfs(adj, i+rowNbr[k], j+colnbr[k], visited)
 
@@ -56,5 +56,5 @@ Enter elements row by row:
 0 0 1 0 0 1
 0 0 0 0 1 0
 
-Island count: 4
+Island count: 8
 '''
