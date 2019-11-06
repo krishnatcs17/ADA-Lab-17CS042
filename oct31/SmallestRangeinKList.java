@@ -17,11 +17,11 @@ class SmallestRangeinKList
    
     static class MinHeap 
     { 
-        Node[] harr; // array of elements in heap 
+        Node[] heap; // array of elements in heap 
         int size;     // size of min heap 
    
         MinHeap(Node[] arr, int size) {   //creates a min heap  of given size 
-            this.harr = arr; 
+            this.heap = arr; 
             this.size = size; 
             int i = (size - 1) / 2; 
             while (i >= 0)  { 
@@ -30,23 +30,22 @@ class SmallestRangeinKList
             } 
         } 
   
-        int left(int i)  { 
+        int leftChild(int i)  { 
             return 2 * i + 1; 
         } 
    
-        int right(int i)  { 
+        int rightChild(int i)  { 
             return 2 * i + 2; 
         } 
   
         // to heapify a subtree with root at given index 
-        void MinHeapify(int i)  
-        { 
-            int l = left(i); 
-            int r = right(i); 
+        void MinHeapify(int i)  { 
+            int l = leftChild(i); 
+            int r = rightChild(i); 
             int small = i; 
-            if (l < size && harr[l].ele < harr[i].ele) 
+            if (l < size && heap[l].ele < heap[i].ele) 
                 small = l; 
-            if (r < size && harr[r].ele < harr[small].ele) 
+            if (r < size && heap[r].ele < heap[small].ele) 
                 small = r; 
             if (small != i) { 
                 swap(small, i); 
@@ -54,22 +53,21 @@ class SmallestRangeinKList
             } 
         } 
   
-        void swap(int i, int j) 
-        { 
-            Node temp = harr[i]; 
-            harr[i] = harr[j]; 
-            harr[j] = temp; 
+        void swap(int i, int j) { 
+            Node temp = heap[i]; 
+            heap[i] = heap[j]; 
+            heap[j] = temp; 
         } 
   
         // to get the root 
         Node getMin() { 
-            return harr[0]; 
+            return heap[0]; 
         } 
   
         // to replace root with new node x and heapify() new root 
         void replaceMin(Node x) 
         { 
-            harr[0] = x; 
+            heap[0] = x; 
             MinHeapify(0); 
         } 
     } 
@@ -119,7 +117,7 @@ class SmallestRangeinKList
             // Replace root with next element of list 
             mh.replaceMin(root); 
         } 
-        System.out.print("The smallest range is [" + start + " " + end + "]"); 
+        System.out.println("\nThe smallest range is [" + start + " " + end + "]"); 
     } 
 
     public static void main(String[] args)  
@@ -151,5 +149,7 @@ Enter the elements of each list line by line:
 1 4 8 12
 5 9 17 21
 7 10 20 30
+
 The smallest range is [4 7]
+
 */
