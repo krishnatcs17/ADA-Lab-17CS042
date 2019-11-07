@@ -32,6 +32,8 @@ if __name__ == "__main__":
 """
 OUTPUT
 
+Enter no. of nodes: 6
+Enter weight matrix: 
 999 4 4 999 999 999
 4 999 2 999 999 999
 4 2 999 3 4 2
@@ -39,5 +41,7 @@ OUTPUT
 999 999 4 3 999 999
 999 999 2 999 999 999
 
-Weight of MST: 12
+Edges: [(0, 1), (1, 2), (2, 5), (2, 3), (3, 4)]
+
+Weight of MST: 14
 """
